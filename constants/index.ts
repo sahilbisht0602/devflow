@@ -33,11 +33,6 @@ export const sidebarLinks: SidebarLink[] = [
     label: "Tags",
   },
   {
-    imgURL: "/assets/icons/user.svg",
-    route: "/profile",
-    label: "Profile",
-  },
-  {
     imgURL: "/assets/icons/question.svg",
     route: "/ask-question",
     label: "Ask a question",
@@ -90,11 +85,69 @@ export const RightBarContent = {
   TAGS: {
     heading: "Popular Tags",
     content: [
-      { title: "NEXTJS", count: "31" },
-      { title: "TEST", count: "19" },
-      { title: "REACT", count: "18" },
-      { title: "CSS", count: "14" },
-      { title: "NEXTJS", count: "9" },
+      { title: "NEXTJS", count: "31", _id: "1" },
+      { title: "TEST", count: "19", _id: "2" },
+      { title: "REACT", count: "18", _id: "3" },
+      { title: "CSS", count: "14", _id: "4" },
+      { title: "NEXTJS", count: "9", _id: "5" },
     ],
   },
 };
+
+export const QuestionCardContent = [
+  {
+    _id: "1",
+    title:
+      "Best Practices for data fetching in a next js Best practices for data fetching in a nextjs Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perspiciatis, sapiente?",
+    createdAt: new Date("2021-09-01T12:00:00.000Z"),
+    tags: [
+      { title: "NEXTJS", _id: "1" },
+      { title: "Python", _id: "1" },
+    ],
+    author: {
+      _id: "1",
+      name: "Sahil bisht",
+      picture: "",
+    },
+    upvotes: "150",
+    views: "59787",
+    answers: [],
+  },
+  {
+    _id: "2",
+    title:
+      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perspiciatis, sapiente?",
+    createdAt: new Date("2022-09-01T12:00:00.000Z"),
+    tags: [
+      { title: "React", _id: "1" },
+      { title: "Python", _id: "1" },
+    ],
+    author: {
+      _id: "1",
+      name: "Vijay bisht",
+      picture: "",
+    },
+    upvotes: "250",
+    views: "9787",
+    answers: [],
+  },
+  {
+    _id: "2",
+    title:
+      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perspiciatis, sapiente?",
+    createdAt: new Date("2022-09-01T12:00:00.000Z"),
+    tags: [
+      { title: "React", _id: "1" },
+      { title: "Python", _id: "1" },
+    ],
+    author: {
+      _id: "1",
+      name: "Vijay bisht",
+      picture: "",
+    },
+    upvotes: "250",
+    views: "9787",
+    answers: [],
+  },
+  
+];

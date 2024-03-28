@@ -1,10 +1,11 @@
 import { RightBarContent } from "@/constants";
 import Image from "next/image";
 import React from "react";
+import RenderTag from "./RenderTag";
 
 const RightSideBar = () => {
   return (
-    <section className="background-light900_dark200 flex h-screen flex-col gap-6 overflow-y-scroll  p-6 pt-36 shadow-md  max-lg:hidden lg:w-[350px]">
+    <section className="background-light900_dark200 text-dark100_light900 sticky right-0 top-0 flex h-screen flex-col gap-6  overflow-y-scroll p-6 pt-36  shadow-md max-xl:hidden lg:w-[350px] ">
       <div>
         <h3 className="h3-bold">{RightBarContent.TOP_QUESTION.heading}</h3>
         <div className="mt-[26px] flex flex-col gap-[30px]">
@@ -28,12 +29,13 @@ const RightSideBar = () => {
         <h3 className="h3-bold">{RightBarContent.TAGS.heading}</h3>
         <div className="mt-[26px] flex flex-col gap-4">
           {RightBarContent.TAGS.content.map((item) => (
-            <div className="flex-between" key={item.title}>
-              <div className="bg-[#f4f6f8] px-4 py-2 text-[10px] text-[#858ead] shadow-md">
-                {item.title}
-              </div>
-              <p>{item.count}</p>
-            </div>
+            <RenderTag
+              key={item._id}
+              _id={item._id}
+              name={item.title}
+              showCount
+              count={item.count}
+            />
           ))}
         </div>
       </div>

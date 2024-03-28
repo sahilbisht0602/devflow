@@ -39,7 +39,7 @@ const SideBarContent = () => {
 };
 const LeftSideBar = () => {
   return (
-    <section className="flex-between background-light900_dark200 custom-scrollbar sticky flex flex-col h-screen light-border overflow-y-auto p-6 pt-36 shadow-md max-sm:hidden lg:w-[266px]">
+    <section className="flex-between background-light900_dark200 custom-scrollbar sticky left-0 top-0 flex flex-col h-screen light-border overflow-y-auto p-6 pt-36 shadow-md max-sm:hidden lg:w-[266px]">
       <SideBarContent />
       <SignedOut>
         <div className="flex w-full flex-col gap-3 ">
