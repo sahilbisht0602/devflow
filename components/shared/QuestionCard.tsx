@@ -6,7 +6,7 @@ interface QuestionCardProps {
   _id: string;
   title: string;
   author: { _id: string; name: string; picture: string };
-  tags: { title: string; _id: string }[];
+  tags: { name: string; _id: string }[];
   upvotes: string;
   views: string;
 }
@@ -25,14 +25,14 @@ const QuestionCard = ({
         <span className="text-dark400_light700 hidden max-sm:flex">
           202 days
         </span>
-        <a href={`/questions/`}>
+        <a href={`/questions/${_id}`}>
           <h3 className="text-dark200_light900 base-semibold line-clamp-1">
             {title}
           </h3>
         </a>
         <div className="mt-3.5 flex flex-wrap gap-2">
           {tags.map((tag) => (
-            <RenderTag key={tag._id} _id={tag._id} name={tag.title} />
+            <RenderTag key={tag._id} _id={tag._id} name={tag.name} />
           ))}
         </div>
         <div className="mt-6 flex flex-wrap gap-3 sm:justify-between">
@@ -63,7 +63,7 @@ const QuestionCard = ({
             <Metric
               imageUrl="/assets/icons/eye.svg"
               alt="Views"
-              values={upvotes}
+              values={views}
               title={"Views"}
               textStyles="small-medium text-dark400_light800"
             />

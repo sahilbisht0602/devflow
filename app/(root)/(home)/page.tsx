@@ -6,15 +6,16 @@ import Filter from "@/components/shared/Filter";
 import { HomePageFilter } from "@/constants/filters";
 import HomeFilters from "@/components/home/HomeFilters";
 import QuestionCard from "@/components/shared/QuestionCard";
-import { QuestionCardContent } from "@/constants";
 import Notfound from "@/components/shared/Notfound";
+import { getQuestions } from "@/lib/actions/question.action";
 
-const Home = () => {
+const Home = async () => {
+  const result = await getQuestions({});
   return (
     <>
       <div className="text-dark100_light900 flex justify-between gap-4 max-sm:flex-col-reverse">
         <h1 className="h1-bold">All Questions</h1>
-        <Link href={"/"} className="flex justify-end max-sm:w-full">
+        <Link href={"/ask-question"} className="flex justify-end max-sm:w-full">
           <Button className="primary-gradient min-h-[46px] py-3 font-medium text-white">
             Ask a Question
           </Button>
@@ -36,27 +37,18 @@ const Home = () => {
       </div>
       <HomeFilters />
       <div className="mt-10 flex flex-col gap-6">
-        {QuestionCardContent.length > 0 ? (
-          QuestionCardContent.map(
-            (item: {
-              _id: string;
-              title: string;
-              tags: { title: string; _id: string }[];
-              author: { _id: string; name: string; picture: string };
-              upvotes: string;
-              views: string;
-            }) => (
-              <QuestionCard
-                key={item._id}
-                _id={item._id}
-                title={item.title}
-                tags={item.tags}
-                author={item.author}
-                upvotes={item.upvotes}
-                views={item.views}
-              />
-            )
-          )
+        {result.questions.length > 0 ? (
+          result?.questions.map((item: any) => (
+            <QuestionCard
+              key={item._id}
+              _id={item._id}
+              title={item.title}
+              tags={item.tags}
+              author={item.author}
+              upvotes={item.upvotes}
+              views={item.views}
+            />
+          ))
         ) : (
           <Notfound
             title={"There are no question to show"}
