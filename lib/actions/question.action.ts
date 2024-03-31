@@ -5,7 +5,7 @@ import { connectToDatabase } from "../mongoose";
 import Tag from "@/database/tag.model";
 import User from "@/database/user.model";
 
-export async function getQuestions(params) {
+export async function getQuestions() {
   try {
     connectToDatabase();
     const questions = await Question.find({})
@@ -19,11 +19,11 @@ export async function getQuestions(params) {
 }
 
 // server action which will create a question on DB
-export async function createQuestion(params) {
+export async function createQuestion(params:any) {
   try {
     // connext to DB
     connectToDatabase();
-    const { title, content, author, path, tags } = params;
+    const { title, content, author, tags } = params;
     // create a question
     const question = await Question.create({
       title,

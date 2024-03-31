@@ -10,7 +10,7 @@ import Notfound from "@/components/shared/Notfound";
 import { getQuestions } from "@/lib/actions/question.action";
 
 const Home = async () => {
-  const result = await getQuestions({});
+  const result = await getQuestions();
   return (
     <>
       <div className="text-dark100_light900 flex justify-between gap-4 max-sm:flex-col-reverse">
@@ -37,7 +37,7 @@ const Home = async () => {
       </div>
       <HomeFilters />
       <div className="mt-10 flex flex-col gap-6">
-        {result.questions.length > 0 ? (
+        {result?.questions && result.questions.length > 0 ? (
           result?.questions.map((item: any) => (
             <QuestionCard
               key={item._id}
