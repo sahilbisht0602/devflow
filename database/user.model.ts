@@ -8,11 +8,11 @@ export interface IUser extends Document {
   bio?: string;
   username: string;
   password?: string;
-  joinedAt: Date;
-  reputation: number;
+  joinedAt?: Date;
+  reputation?: number;
   picture: string;
   location?: string;
-  saved: Schema.Types.ObjectId[];
+  saved?: Schema.Types.ObjectId[];
   portfolioWebsite?: string;
 }
 

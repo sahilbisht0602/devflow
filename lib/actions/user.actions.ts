@@ -3,7 +3,6 @@
 import User from "@/database/user.model";
 import { connectToDatabase } from "../mongoose";
 import { revalidatePath } from "next/cache";
-import error from "next/error";
 
 export async function getUserById(params: any) {
   try {
