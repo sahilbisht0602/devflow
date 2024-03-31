@@ -1,7 +1,11 @@
 import React from "react";
-
-const SignIn = () => {
-  return <div>SignIn</div>;
+import { SignIn } from "@clerk/nextjs";
+const signIn = () => {
+  return (
+    <div className="flex-center min-h-screen">
+      <SignIn />
+    </div>
+  );
 };
 
-export default SignIn;
+export default signIn;
