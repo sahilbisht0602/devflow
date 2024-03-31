@@ -3,6 +3,7 @@
 import User from "@/database/user.model";
 import { connectToDatabase } from "../mongoose";
 import { revalidatePath } from "next/cache";
+import error from "next/error";
 
 export async function getUserById(params: any) {
   try {
@@ -22,7 +23,8 @@ export async function createUser(userParams: any) {
     const newUser = await User.create(userParams);
     return newUser;
   } catch (error) {
-    console.log("error in creating user", error);
+    console.log(error);
+    throw error
   }
 }
 
@@ -38,7 +40,10 @@ export async function updateUser(params: any) {
       { new: true }
     );
     revalidatePath(path);
-  } catch (error) {}
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
 }
 
 export async function deleteUser(params: any) {
@@ -51,5 +56,8 @@ export async function deleteUser(params: any) {
     }
     // delete user from database
     // and questions,answers,comments etc
-  } catch (error) {}
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
 }
