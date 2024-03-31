@@ -63,7 +63,7 @@ export async function POST(req: Request) {
       name: first_name + " " + last_name,
       username,
       email: email_addresses[0].email_address,
-      picrure: image_url,
+      picture: image_url,
     });
     return NextResponse.json({ message: "OK", user: newUser });
   }
