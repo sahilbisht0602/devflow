@@ -4,6 +4,16 @@ import User from "@/database/user.model";
 import { connectToDatabase } from "../mongoose";
 import { revalidatePath } from "next/cache";
 
+export async function getAllUser() {
+  try {
+    connectToDatabase();
+    const users = await User.find({});
+    return users;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 export async function getUserById(params: any) {
   try {
     connectToDatabase();
@@ -23,7 +33,7 @@ export async function createUser(userParams: any) {
     return newUser;
   } catch (error) {
     console.log(error);
-    throw error
+    throw error;
   }
 }
 

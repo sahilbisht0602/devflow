@@ -4,11 +4,11 @@ import React from "react";
 import { Input } from "../../ui/input";
 
 interface CustomSearchProp {
-  route: string;
+  route?: string;
   iconPosition: string;
-  imgSrc: string;
+  imgSrc?: string;
   placeholder: string;
-  otherClasses: string;
+  otherClasses?: string;
 }
 const LocalSearchBar = ({
   route,

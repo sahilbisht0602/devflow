@@ -4,6 +4,9 @@ const nextConfig = {
     mdxRs: true,
     serverComponentsExternalPackages: ["mongoose"],
   },
+  images: {
+    domains: ["img.clerk.com"],
+  },
 };
 
 export default nextConfig;

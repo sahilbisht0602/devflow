@@ -14,8 +14,8 @@ interface FilterProps {
     label: string;
     value: string;
   }[];
-  otherClasses: string;
-  containerClasses: string;
+  otherClasses?: string;
+  containerClasses?: string;
 }
 
 const Filter = ({ filters, otherClasses, containerClasses }: FilterProps) => {
@@ -23,11 +23,11 @@ const Filter = ({ filters, otherClasses, containerClasses }: FilterProps) => {
     <div className={` relative ${containerClasses}`}>
       <Select>
         <SelectTrigger
-          className={`${otherClasses} light-border background-light800_dark300 text-dark500_light700 border px-5 py-2.5`}
+          className={`${otherClasses} light-border background-light800_dark300 text-dark500_light700  border px-5 py-2.5`}
         >
           <SelectValue placeholder="Select a filter" />
         </SelectTrigger>
-        <SelectContent>
+        <SelectContent className="bg-white">
           <SelectGroup>
             {filters.map((item) => (
               <SelectItem key={item.label} value={item.value}>
