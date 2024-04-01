@@ -16,11 +16,11 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { QuestionSchema } from "@/lib/validation";
+import { z } from "zod";
 import { Badge } from "../ui/badge";
 import Image from "next/image";
 import { createQuestion } from "@/lib/actions/question.action";
 import { useRouter, usePathname } from "next/navigation";
-import { z } from "zod";
 
 const type: any = "create";
 
@@ -38,6 +38,7 @@ const Question = ({ mongoUserId }: Props) => {
     defaultValues: {
       title: "",
       explanation: "",
+      tags: [],
     },
   });
 
@@ -196,7 +197,7 @@ const Question = ({ mongoUserId }: Props) => {
                     placeholder="add tags..."
                     onKeyDown={(e) => handleInputKeyDown(e, field)}
                   />
-                  {field?.value?.length > 0 && (
+                  {field.value.length > 0 && (
                     <div className="flex-start mt-2.5 gap-2.5">
                       {field.value.map((tag: any) => (
                         <Badge
