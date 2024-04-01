@@ -196,7 +196,7 @@ const Question = ({ mongoUserId }: Props) => {
                     placeholder="add tags..."
                     onKeyDown={(e) => handleInputKeyDown(e, field)}
                   />
-                  {field.value.length > 0 && (
+                  {field?.value?.length > 0 && (
                     <div className="flex-start mt-2.5 gap-2.5">
                       {field.value.map((tag: any) => (
                         <Badge

@@ -7,7 +7,6 @@ import React from "react";
 
 const Community = async () => {
   const user = await getAllUser();
-  console.log(user);
   return (
     <section>
       <h1 className="h1-bold">All Users</h1>

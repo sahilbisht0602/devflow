@@ -15,7 +15,6 @@ const UserProfileCard = ({
   email,
   picture,
 }: UserProfileCardProps) => {
-  console.log("cicd");
   return (
     <section className="flex flex-1 items-center justify-center rounded-xl bg-white p-8  shadow-lg md:w-[260px]">
       <div className="flex flex-col gap-2">
